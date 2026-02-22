@@ -18,7 +18,9 @@ int main() {
     cin >> estatura;
 
     
-    cout << "El resumen de lo ingresado es " << nombre << ", " << edad << ", " << estatura << endl;
+    cout << "Su nombre es " << nombre <<  endl;
+    cout << "Su edad es " << edad <<  endl;
+    cout << "Su estatura es " << estatura <<  endl;
 
     return 0;
 }
