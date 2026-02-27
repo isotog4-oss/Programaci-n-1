@@ -8,7 +8,7 @@ int main() {
     
 
     cout << "Ingrese su nombre: ";
-    cin >> nombre;
+    getline(cin, nombre);
 
 
     cout << "Ingrese su edad: ";
