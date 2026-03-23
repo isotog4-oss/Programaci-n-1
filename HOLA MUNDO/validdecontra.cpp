@@ -2,12 +2,12 @@
 using namespace std;
 
 int main() {
-    int pass;
+    string pass;
 
     cout << "Ingrese la contraseña: ";
     cin >> pass;
 
-    while (pass != 1234) {
+    while (pass != "1234") {
         cout << "Contraseña incorrecta. Intente de nuevo: ";
         cin >> pass;
     }
