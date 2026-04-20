@@ -9,7 +9,7 @@ int main() {
     int pares = 0;
     int impares = 0;
 
-    int numeros[100]; // almacenamiento de datos
+    int numeros[100]; 
 
     do {
         cout << "\n===== SISTEMA DE GESTION SIMPLE =====\n";
@@ -29,13 +29,13 @@ int main() {
                     cout << "Ingrese un numero: ";
                     cin >> numero;
 
-                    // Validación: no negativos
+                    
                     if (numero < 0) {
                         cout << "Error: No se permiten numeros negativos.\n";
                         continue;
                     }
 
-                    // Guardar datos
+                    
                     numeros[contador] = numero;
                     contador++;
                     suma += numero;
