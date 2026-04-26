@@ -1,0 +1,1 @@
+homar,glos,10,5,50,0,50,Transferencia
