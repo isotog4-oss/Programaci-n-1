@@ -1,27 +1,18 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <limits> // Para numeric_limits
+#include <limits> 
 
 using namespace std;
 
-// --- Declaración de Funciones y Procedimientos ---
-
-// Funciones para cálculos
 double calcularSubtotal(double precio, int cantidad);
-double calcularDescuento(double subtotal, int tipoPago); // 1: Efectivo, 2: Tarjeta, 3: Transferencia
+double calcularDescuento(double subtotal, int tipoPago); 
 double calcularTotal(double subtotal, double descuento);
 
-// Procedimientos para la interfaz y lógica del programa
 void mostrarMenu();
 void registrarVenta();
 void mostrarReporte();
-void limpiarBufferEntrada(); // Procedimiento auxiliar para limpiar el buffer
-
-// --- Variables Globales (si son necesarias y justificadas) ---
-// En este caso, se evitarán variables globales para mantener un mejor control.
-
-// --- Implementación de Funciones y Procedimientos ---
+void limpiarBufferEntrada(); 
 
 void mostrarMenu() {
     cout << "\n--- Menú Principal ---" << endl;
@@ -39,18 +30,17 @@ double calcularSubtotal(double precio, int cantidad) {
 double calcularDescuento(double subtotal, int tipoPago) {
     double descuento = 0.0;
     switch (tipoPago) {
-        case 1: // Efectivo
-            descuento = subtotal * 0.05; // 5% de descuento
+        case 1: 
+            descuento = subtotal * 0.05; 
             break;
-        case 2: // Tarjeta
-            descuento = subtotal * 0.02; // 2% de descuento
+        case 2: 
+            descuento = subtotal * 0.02; 
             break;
-        case 3: // Transferencia
-            descuento = 0.0; // Sin descuento
+        case 3: 
+            descuento = 0.0; 
             break;
         default:
-            // Este caso no debería ocurrir si las validaciones son correctas,
-            // pero se incluye por robustez.
+     
             cout << "Tipo de pago desconocido para descuento." << endl;
             break;
     }
@@ -70,15 +60,15 @@ void registrarVenta() {
 
     cout << "\n--- Registrar Nueva Venta ---" << endl;
 
-    // Solicitar y validar Nombre del Cliente
+   
     cout << "Nombre del cliente: ";
     getline(cin, nombreCliente);
 
-    // Solicitar y validar Nombre del Producto
+  
     cout << "Nombre del producto: ";
     getline(cin, nombreProducto);
 
-    // Solicitar y validar Cantidad
+ 
     while (true) {
         cout << "Cantidad: ";
         cin >> cantidad;
@@ -86,13 +76,12 @@ void registrarVenta() {
             cout << "Error: La cantidad debe ser un número entero mayor que 0." << endl;
             cin.clear();
             limpiarBufferEntrada();
-            continue; // Vuelve a pedir la cantidad
+            continue;
         }
-        limpiarBufferEntrada(); // Limpiar buffer después de una lectura exitosa
-        break; // Salir del bucle si la entrada es válida
+        limpiarBufferEntrada(); 
     }
 
-    // Solicitar y validar Precio Unitario
+  
     while (true) {
         cout << "Precio unitario: ";
         cin >> precioUnitario;
@@ -100,13 +89,12 @@ void registrarVenta() {
             cout << "Error: El precio debe ser un número mayor que 0." << endl;
             cin.clear();
             limpiarBufferEntrada();
-            continue; // Vuelve a pedir el precio
+            continue; 
         }
-        limpiarBufferEntrada(); // Limpiar buffer después de una lectura exitosa
-        break; // Salir del bucle si la entrada es válida
+        limpiarBufferEntrada(); 
     }
 
-    // Solicitar y validar Tipo de Pago
+  
     while (true) {
         cout << "Tipo de pago (1: Efectivo, 2: Tarjeta, 3: Transferencia): ";
         cin >> tipoPago;
@@ -114,19 +102,18 @@ void registrarVenta() {
             cout << "Error: El tipo de pago debe ser 1, 2 o 3." << endl;
             cin.clear();
             limpiarBufferEntrada();
-            continue; // Vuelve a pedir el tipo de pago
+            continue; 
         }
-        limpiarBufferEntrada(); // Limpiar buffer después de una lectura exitosa
-        break; // Salir del bucle si la entrada es válida
+        limpiarBufferEntrada();
     }
 
-    // --- Cálculos ---
+   
     subtotal = calcularSubtotal(precioUnitario, cantidad);
     descuento = calcularDescuento(subtotal, tipoPago);
     total = calcularTotal(subtotal, descuento);
 
-    // --- Escritura en Archivo ---
-    ofstream archivoVentas("ventas.txt", ios::app); // 'app' para agregar al final
+    
+    ofstream archivoVentas("ventas.txt", ios::app); 
 
     if (archivoVentas.is_open()) {
         archivoVentas << nombreCliente << ","
@@ -157,11 +144,11 @@ void mostrarReporte() {
     cout << "\n--- Reporte de Ventas ---" << endl;
 
     if (archivoVentas.is_open()) {
-        if (getline(archivoVentas, linea)) { // Intenta leer la primera línea
+        if (getline(archivoVentas, linea)) { 
             do {
                 cout << numeroVenta << ". " << linea << endl;
                 numeroVenta++;
-            } while (getline(archivoVentas, linea)); // Lee las siguientes líneas
+            } while (getline(archivoVentas, linea)); 
             archivoVentas.close();
         } else {
             cout << "No hay ventas registradas para mostrar." << endl;
@@ -177,7 +164,7 @@ void limpiarBufferEntrada() {
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
 }
 
-// --- Función Principal (main) ---
+
 int main() {
     int opcion;
 
@@ -187,11 +174,11 @@ int main() {
 
         if (cin.fail()) {
             cout << "Entrada inválida. Por favor, ingrese un número." << endl;
-            cin.clear(); // Limpiar el estado de error
-            limpiarBufferEntrada(); // Descartar la entrada incorrecta
-            continue; // Volver al inicio del bucle
+            cin.clear(); 
+            limpiarBufferEntrada(); 
+            continue; 
         }
-        limpiarBufferEntrada(); // Limpiar el buffer después de leer la opción
+        limpiarBufferEntrada(); 
 
         switch (opcion) {
             case 1:
@@ -205,9 +192,9 @@ int main() {
                 break;
             default:
                 cout << "Opción no válida. Por favor, intente de nuevo." << endl;
-                continue; // Usar continue para volver a mostrar el menú
+                continue; 
         }
-    } while (opcion != 3); // El bucle continúa hasta que el usuario elija la opción 3 (Salir)
+    } while (opcion != 3); 
 
     return 0;
 }
