@@ -1,0 +1,311 @@
+#include <iostream>
+#include <fstream>
+#include <cstring>
+#include <cmath>
+#include <limits>
+#include <stdexcept>
+
+const int MAX_NOM = 50;
+const int MAX_DETALLES = 10;
+const double IVA_GUATEMALA = 0.12;
+
+
+const char ESTUDIANTE[] = "Israel Roberto Soto García";
+
+struct Producto {
+    int codigo;
+    char nombre[MAX_NOM];
+    double precio;
+    int stock;
+    int ventasAcumuladas;
+    bool activo;
+};
+
+struct DetalleVenta {
+    int codigoProducto;
+    int cantidad;
+    double precioUnitario;
+    double subtotal;
+};
+
+struct Venta {
+    int idVenta;
+    int dia;
+    int mes;
+    int anio;
+    DetalleVenta detalles[MAX_DETALLES];
+    int cantidadDetalles;
+    double subtotalGeneral;
+    double iva;
+    double descuento;
+    double total;
+};
+
+void mostrarEncabezado();
+int leerEntero(const char* mensaje);
+double leerDouble(const char* mensaje);
+void leerCadena(const char* mensaje, char* destino, int tamano);
+
+
+void registrarProducto();
+void listarProductos();
+void buscarProductoPorCodigo();
+void buscarProductoPorNombre();
+void actualizarStock();
+void modificarPrecio();
+void eliminarProducto();
+
+void mostrarEncabezado() {
+    std::cout << "==================================================\n";
+    std::cout << "     SISTEMA DE GESTIÓN DE VENTAS E INVENTARIO    \n";
+    std::cout << "     Desarrollador: " << ESTUDIANTE << "\n";
+    std::cout << "==================================================\n";
+}
+
+int leerEntero(const char* mensaje) {
+    int valor;
+    while (true) {
+        try {
+            std::cout << mensaje;
+            if (!(std::cin >> valor)) {
+                throw std::invalid_argument("Entrada inválida. Debe ingresar un número entero.");
+            }
+            return valor;
+        } catch (const std::exception& e) {
+            std::cout << "[Error]: " << e.what() << "\n";
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        }
+    }
+}
+
+double leerDouble(const char* mensaje) {
+    double valor;
+    while (true) {
+        try {
+            std::cout << mensaje;
+            if (!(std::cin >> valor)) {
+                throw std::invalid_argument("Entrada inválida. Debe ingresar un número decimal.");
+            }
+            if (valor < 0) {
+                throw std::out_of_range("El valor económico no puede ser negativo.");
+            }
+            return valor;
+        } catch (const std::exception& e) {
+            std::cout << "[Error]: " << e.what() << "\n";
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        }
+    }
+}
+
+void leerCadena(const char* mensaje, char* destino, int tamano) {
+    std::cout << mensaje;
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    std::cin.getline(destino, tamano);
+}
+
+void registrarProducto() {
+    std::ofstream archivo("productos.dat", std::ios::binary | std::ios::app);
+    try {
+        if (!archivo) throw std::runtime_error("No se pudo abrir el archivo de productos.");
+
+        Producto p;
+        p.codigo = leerEntero("Ingrese código único del producto: ");
+        
+        
+        std::ifstream verif("productos.dat", std::ios::binary);
+        if (verif) {
+            Producto temp;
+            while (verif.read(reinterpret_cast<char*>(&temp), sizeof(Producto))) {
+                if (temp.codigo == p.codigo && temp.activo) {
+                    verif.close();
+                    throw std::invalid_argument("El código de producto ya existe.");
+                }
+            }
+            verif.close();
+        }
+
+        leerCadena("Ingrese nombre del producto: ", p.nombre, MAX_NOM);
+        p.precio = leerDouble("Ingrese precio (Q): ");
+        p.stock = leerEntero("Ingrese stock inicial: ");
+        if (p.stock < 0) throw std::invalid_argument("El stock no puede ser negativo.");
+        
+        p.ventasAcumuladas = 0;
+        p.activo = true;
+
+        archivo.write(reinterpret_cast<const char*>(&p), sizeof(Producto));
+        archivo.close();
+        std::cout << "¡Producto registrado exitosamente!\n";
+    } catch (const std::exception& e) {
+        std::cout << "[Error al registrar]: " << e.what() << "\n";
+        if (archivo.is_open()) archivo.close();
+    }
+}
+
+void listarProductos() {
+    std::ifstream archivo("productos.dat", std::ios::binary);
+    try {
+        if (!archivo) throw std::runtime_error("No existen productos registrados.");
+
+        Producto p;
+        std::cout << "\n--- LISTADO DE PRODUCTOS ACTIVAS ---\n";
+        std::cout << "Cód.\tNombre\t\t\tPrecio\tStock\tVentas Acum.\n";
+        std::cout << "--------------------------------------------------\n";
+        
+        bool hayProductos = false;
+        while (archivo.read(reinterpret_cast<char*>(&p), sizeof(Producto))) {
+            if (p.activo) {
+                std::cout << p.codigo << "\t" << p.nombre << "\t\tQ" << p.precio << "\t" << p.stock << "\t" << p.ventasAcumuladas << "\n";
+                hayProductos = true;
+            }
+        }
+        if (!hayProductos) std::cout << "No hay productos activos en el catálogo.\n";
+        archivo.close();
+    } catch (const std::exception& e) {
+        std::cout << "[Error al listar]: " << e.what() << "\n";
+    }
+}
+
+void buscarProductoPorCodigo() {
+    std::ifstream archivo("productos.dat", std::ios::binary);
+    try {
+        if (!archivo) throw std::runtime_error("No se pudo abrir el archivo de productos.");
+
+        int cod = leerEntero("Ingrese el código a buscar: ");
+        Producto p;
+        bool encontrado = false;
+
+        while (archivo.read(reinterpret_cast<char*>(&p), sizeof(Producto))) {
+            if (p.codigo == cod && p.activo) {
+                std::cout << "\n[Producto Encontrado]\n";
+                std::cout << "Nombre: " << p.nombre << "\nPrecio: Q" << p.precio << "\nStock: " << p.stock << "\n";
+                encontrado = true;
+                break;
+            }
+        }
+        if (!encontrado) std::cout << "Producto no encontrado o inactivo.\n";
+        archivo.close();
+    } catch (const std::exception& e) {
+        std::cout << "[Error]: " << e.what() << "\n";
+    }
+}
+
+void buscarProductoPorNombre() {
+    std::ifstream archivo("productos.dat", std::ios::binary);
+    try {
+        if (!archivo) throw std::runtime_error("No se pudo abrir el archivo de productos.");
+
+        char nomBuscado[MAX_NOM];
+        leerCadena("Ingrese el nombre del producto a buscar: ", nomBuscado, MAX_NOM);
+        
+        Producto p;
+        bool encontrado = false;
+
+     
+        while (archivo.read(reinterpret_cast<char*>(&p), sizeof(Producto))) {
+            if (p.activo && strstr(p.nombre, nomBuscado) != nullptr) {
+                std::cout << "\n[Resultado Coincidente]\n";
+                std::cout << "Código: " << p.codigo << " | Nombre: " << p.nombre << " | Precio: Q" << p.precio << " | Stock: " << p.stock << "\n";
+                encontrado = true;
+            }
+        }
+        if (!encontrado) std::cout << "No se encontraron productos con ese nombre.\n";
+        archivo.close();
+    } catch (const std::exception& e) {
+        std::cout << "[Error]: " << e.what() << "\n";
+    }
+}
+
+void actualizarStock() {
+    std::fstream archivo("productos.dat", std::ios::in | std::ios::out | std::ios::binary);
+    try {
+        if (!archivo) throw std::runtime_error("Error al abrir el archivo de inventario.");
+
+        int cod = leerEntero("Ingrese el código del producto a actualizar stock: ");
+        Producto p;
+        long pos = 0;
+        bool encontrado = false;
+
+        while (archivo.read(reinterpret_cast<char*>(&p), sizeof(Producto))) {
+            if (p.codigo == cod && p.activo) {
+                int nuevoStock = leerEntero("Ingrese la cantidad a añadir (positivo) o restar (negativo): ");
+                if (p.stock + nuevoStock < 0) throw std::invalid_argument("El stock resultante no puede ser menor a 0.");
+                
+                p.stock += nuevoStock;
+                encontrado = true;
+
+                archivo.seekp(pos);
+                archivo.write(reinterpret_cast<const char*>(&p), sizeof(Producto));
+                std::cout << "Stock modificado con éxito. Nuevo stock: " << p.stock << "\n";
+                break;
+            }
+            pos = archivo.tellg();
+        }
+        if (!encontrado) std::cout << "Producto no encontrado.\n";
+        archivo.close();
+    } catch (const std::exception& e) {
+        std::cout << "[Error de Inventario]: " << e.what() << "\n";
+        if (archivo.is_open()) archivo.close();
+    }
+}
+
+void modificarPrecio() {
+    std::fstream archivo("productos.dat", std::ios::in | std::ios::out | std::ios::binary);
+    try {
+        if (!archivo) throw std::runtime_error("Error de acceso al archivo.");
+
+        int cod = leerEntero("Ingrese el código del producto para cambiar precio: ");
+        Producto p;
+        long pos = 0;
+        bool encontrado = false;
+
+        while (archivo.read(reinterpret_cast<char*>(&p), sizeof(Producto))) {
+            if (p.codigo == cod && p.activo) {
+                p.precio = leerDouble("Ingrese el nuevo precio (Q): ");
+                encontrado = true;
+
+                archivo.seekp(pos);
+                archivo.write(reinterpret_cast<const char*>(&p), sizeof(Producto));
+                std::cout << "Precio modificado correctamente.\n";
+                break;
+            }
+            pos = archivo.tellg();
+        }
+        if (!encontrado) std::cout << "Producto no registrado.\n";
+        archivo.close();
+    } catch (const std::exception& e) {
+        std::cout << "[Error]: " << e.what() << "\n";
+        if (archivo.is_open()) archivo.close();
+    }
+}
+
+void eliminarProducto() {
+    std::fstream archivo("productos.dat", std::ios::in | std::ios::out | std::ios::binary);
+    try {
+        if (!archivo) throw std::runtime_error("Error de archivo.");
+
+        int cod = leerEntero("Ingrese el código del producto a dar de baja/eliminar: ");
+        Producto p;
+        long pos = 0;
+        bool encontrado = false;
+
+        while (archivo.read(reinterpret_cast<char*>(&p), sizeof(Producto))) {
+            if (p.codigo == cod && p.activo) {
+                p.activo = false; 
+                encontrado = true;
+
+                archivo.seekp(pos);
+                archivo.write(reinterpret_cast<const char*>(&p), sizeof(Producto));
+                std::cout << "Producto eliminado/desactivado lógicamente del sistema con éxito.\n";
+                break;
+            }
+            pos = archivo.tellg();
+        }
+        if (!encontrado) std::cout << "Producto no encontrado.\n";
+        archivo.close();
+    } catch (const std::exception& e) {
+        std::cout << "[Error]: " << e.what() << "\n";
+        if (archivo.is_open()) archivo.close();
+    }
+}
