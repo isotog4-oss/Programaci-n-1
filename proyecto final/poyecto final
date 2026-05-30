@@ -733,7 +733,7 @@ int main() {
         std::cout << "1. Módulo de Productos\n";
         std::cout << "2. Procesar Nueva Venta (Facturación)\n";
         std::cout << "3. Módulo de Reportes y Estadísticas\n";
-        txt::std::cout << "4. Exportar Datos (.txt)\n";
+    ::std::cout << "4. Exportar Datos (.txt)\n";
         std::cout << "5. Estadísticas Generales de Capital\n";
         std::cout << "6. Reiniciar Sistema Completamente\n";
         std::cout << "7. Salir del Sistema\n";

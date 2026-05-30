@@ -1,0 +1,98 @@
+================================================================================================================================================================
+  GUÍA RÁPIDA DE COMPILACIÓN Y EJECUCIÓN - SISTEMA DE VENTAS E INVENTARIO
+================================================================================================================================================================
+Desarrollador: Israel Roberto Soto García
+Estructura: Arquitectura Modular de Archivos (.h / .cpp)
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Este documento contiene las instrucciones exactas paso a paso para que cualquier
+persona o docente pueda compilar, enlazar y ejecutar este sistema desde cero en 
+cualquier computadora sin pérdida de dependencias.
+
+================================================================================================================================================================
+PASO 1: UBICACIÓN CORRECTA EN LA TERMINAL (¡CRÍTICO!)
+================================================================================================================================================================
+El error más común es intentar compilar fuera del directorio de origen. 
+Antes de ejecutar cualquier comando, abra la terminal de su sistema (o la 
+terminal integrada de Visual Studio Code) y asegúrese de estar posicionado 
+dentro de la carpeta 'SistemaVentas'.
+
+Si su terminal está en la raíz, use el comando de navegación:
+    cd SistemaVentas
+
+Verifique que al listar los archivos (con el comando 'dir' en Windows o 'ls' 
+en Linux/Mac) se visualicen los archivos fuentes: main.cpp, productos.cpp, 
+ventas.cpp, etc.
+
+================================================================================================================================================================
+PASO 2: COMANDO DE COMPILACIÓN ESTÁNDAR (RECOMENDADO)
+================================================================================================================================================================
+Para compilar todos los módulos de forma unificada en un solo ejecutable nativo,
+copie y pegue el siguiente comando completo en su consola y presione Enter:
+
+    g++ -o SistemaVentas main.cpp utilidades.cpp productos.cpp ventas.cpp reportes.cpp sistema.cpp
+
+Explicación del comando:
+ * g++: Invoca al compilador de GNU C++.
+ * -o SistemaVentas: Define el nombre del archivo de salida (ejecutable).
+ * *.cpp: Lista completa de módulos de lógica e interfaz necesarios para el enlace.
+
+Si el comando se ejecuta con éxito, la consola no mostrará ningún mensaje de error
+y regresará a una línea limpia, creando el archivo 'SistemaVentas.exe'.
+
+================================================================================================================================================================
+PASO 3: EJECUCIÓN DEL SISTEMA
+================================================================================================================================================================
+Una vez compilado, ejecute el programa con el siguiente comando según su consola:
+
+ En PowerShell (Por defecto en VS Code):
+    .\SistemaVentas.exe
+
+ En CMD clásico de Windows:
+    SistemaVentas.exe
+
+ En Linux / macOS Terminal:
+    ./SistemaVentas
+
+================================================================================================================================================================
+PASO 4: PLANES DE RESPALDO Y RESOLUCIÓN DE PROBLEMAS
+================================================================================================================================================================
+
+PLAN A: El comando g++ funciona pero no encuentra los archivos
+Causa: La terminal no está abierta en la carpeta correcta.
+Solución: En el explorador lateral de VS Code, haga clic derecho sobre el archivo 
+'main.cpp' y elija la opción "Abrir en la terminal integrada". Esto forzará a la 
+consola a pararse exactamente en la dirección del proyecto. Luego repita el Paso 2.
+
+PLAN B: "g++ no se reconoce como un comando interno o externo"
+Causa: No se tiene instalado el compilador GCC/MinGW en el sistema o no está 
+configurado en las Variables de Entorno del PATH.
+Solución: 
+1. Descargue e instale MinGW-w64 (o MSYS2) para Windows.
+2. Asegúrese de añadir la ruta de la carpeta 'bin' al PATH de su sistema operativo.
+3. Reinicie Visual Studio Code para que cargue la configuración de la consola.
+
+PLAN C: COMPILACIÓN DIRECTA DESDE LA INTERFAZ GRÁFICA DE VS CODE
+Si por alguna razón la persona no quiere o no puede usar comandos manuales en la 
+terminal, puede forzar la ejecución desde el entorno de desarrollo:
+1. En el explorador lateral de VS Code, haga clic para abrir el archivo 'main.cpp'.
+2. Con el archivo 'main.cpp' activo en pantalla, busque en la esquina superior 
+   derecha de la interfaz el icono de "Play" (un triángulo de reproducción) o 
+   presione la combinación de teclas Ctrl + Alt + N (o F5).
+3. El propio entorno de Visual Studio Code tomará la dirección del archivo actual, 
+   enlazará de forma automatizada los archivos de la carpeta y levantará el 
+   sistema de gestión de inmediato en la terminal de depuración.
+
+================================================================================================================================================================
+PERSISTENCIA DE DATOS Y FLUJO DEL SISTEMA
+================================================================================================================================================================
+El sistema gestiona de forma autónoma bases de datos binarias de bajo nivel y 
+archivos planos. Al interactuar con los menús se generarán automáticamente:
+  - productos.dat          : Archivo binario con persistencia de inventario.
+  - ventas.dat             : Archivo binario histórico de facturación diaria/mensual.
+  - Reporte_Inventario.txt : Reporte plano exportable para auditorías externas.
+
+*Nota de Seguridad:* No intente abrir los archivos '.dat' con un editor de texto 
+convencional (como el Bloc de notas), ya que alterará la alineación de bytes de 
+las estructuras de C++ y corromperá el orden de la base de datos local.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
