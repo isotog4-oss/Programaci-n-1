@@ -4,6 +4,7 @@
 #include <iostream>
 #include <fstream>
 #include <cmath>
+#include <limits> 
 
 void descontarStock(int codigo, int cant) {
     std::fstream archivo("productos.dat", std::ios::binary | std::ios::in | std::ios::out);
@@ -61,7 +62,9 @@ void crearVenta() {
         } else {
             std::cout << "Producto no existe.\n";
         }
-        std::cout << "Agregar otro? (s/n): "; std::cin >> opcion;
+        std::cout << "Agregar otro? (s/n): "; 
+        std::cin >> opcion;
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
     } while ((opcion == 's' || opcion == 'S') && v.cantidadDetalles < MAX_DETALLES);
 
     if (v.cantidadDetalles > 0) {

@@ -1,0 +1,5 @@
+SISTEMA INVENTARIO - REPORTE
+
+COD: 1 | sal | Stock: 10016
+COD: 66 | lapiz | Stock: 99
+COD: 5 | agua pura | Stock: 51

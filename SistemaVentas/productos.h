@@ -9,6 +9,6 @@ void buscarProductoPorNombre();
 void actualizarStock();
 void modificarPrecio();
 void eliminarProducto();
-bool obtenerProducto(int codigo, Producto &p);
+bool obtenerProducto(int codigo, Producto &p); 
 
 #endif

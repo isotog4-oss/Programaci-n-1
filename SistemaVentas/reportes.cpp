@@ -27,7 +27,7 @@ void reportarVentasPorMes() {
 }
 
 void ordenarCatálogo() {
-    
+   
     Producto lista[500];
     int n = 0;
     std::ifstream f("productos.dat", std::ios::binary);

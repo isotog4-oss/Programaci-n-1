@@ -14,7 +14,10 @@ int Util::leerEntero(const char* mensaje) {
     int valor;
     while (true) {
         std::cout << mensaje;
-        if (std::cin >> valor) return valor;
+        if (std::cin >> valor) {
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
+            return valor;
+        }
         std::cout << "[Error]: Ingrese un numero entero valido.\n";
         std::cin.clear();
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -25,7 +28,10 @@ double Util::leerDouble(const char* mensaje) {
     double valor;
     while (true) {
         std::cout << mensaje;
-        if (std::cin >> valor && valor >= 0) return valor;
+        if (std::cin >> valor && valor >= 0) {
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
+            return valor;
+        }
         std::cout << "[Error]: Ingrese un valor decimal positivo.\n";
         std::cin.clear();
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -34,8 +40,7 @@ double Util::leerDouble(const char* mensaje) {
 
 void Util::leerCadena(const char* mensaje, char* destino, int tamano) {
     std::cout << mensaje;
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    std::cin.getline(destino, tamano);
+    std::cin.getline(destino, tamano); 
 }
 
 void Util::limpiarPantalla() {
@@ -48,5 +53,5 @@ void Util::limpiarPantalla() {
 
 void Util::pausar() {
     std::cout << "\nPresione Enter para continuar...";
-    std::cin.get();
+    std::cin.get(); 
 }

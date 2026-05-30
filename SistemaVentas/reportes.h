@@ -2,8 +2,8 @@
 #define REPORTES_H
 
 void reportarVentasPorMes(); 
-void ordenarCatálogo();    
-void exportarTexto();        
+void ordenarCatálogo();     
+void exportarTexto();       
 void estadisticasGlobales();
 
 #endif
