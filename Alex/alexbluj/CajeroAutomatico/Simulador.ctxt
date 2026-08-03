@@ -1,0 +1,8 @@
+#BlueJ class context
+#Sun Aug 02 21:48:25 CST 2026
+comment0.target=Simulador
+comment1.params=args
+comment1.target=void main(java.lang.String[])
+comment2.params=cuenta
+comment2.target=void mostrarHistorial(CuentaBancaria)
+numComments=3

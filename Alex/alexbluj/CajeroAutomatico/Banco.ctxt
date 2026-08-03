@@ -1,0 +1,15 @@
+#BlueJ class context
+#Sun Aug 02 21:47:55 CST 2026
+comment0.target=Banco
+comment1.params=nombre
+comment1.target=Banco(java.lang.String)
+comment2.target=java.lang.String getNombre()
+comment3.params=cuenta
+comment3.target=void registrarCuenta(CuentaBancaria)
+comment4.params=tarjeta
+comment4.target=void registrarTarjeta(Tarjeta)
+comment5.params=numeroTarjeta
+comment5.target=Tarjeta buscarTarjeta(java.lang.String)
+comment6.params=numeroCuenta
+comment6.target=CuentaBancaria buscarCuenta(java.lang.String)
+numComments=7

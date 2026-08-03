@@ -1,0 +1,8 @@
+#BlueJ class context
+#Sun Aug 02 21:47:55 CST 2026
+comment0.target=Deposito
+comment1.params=cuentaOrigen monto
+comment1.target=Deposito(CuentaBancaria, double)
+comment2.target=boolean ejecutar()
+comment3.target=java.lang.String getTipo()
+numComments=4

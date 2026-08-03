@@ -1,0 +1,14 @@
+#BlueJ class context
+#Sun Aug 02 21:47:55 CST 2026
+comment0.target=Transaccion
+comment1.params=cuentaOrigen monto
+comment1.target=Transaccion(CuentaBancaria, double)
+comment2.target=int getCodigo()
+comment3.target=java.time.LocalDateTime getFecha()
+comment4.target=CuentaBancaria getCuentaOrigen()
+comment5.target=double getMonto()
+comment6.target=boolean ejecutar()
+comment7.target=java.lang.String getTipo()
+comment8.params=exitosa
+comment8.target=Recibo generarRecibo(boolean)
+numComments=9

@@ -1,0 +1,21 @@
+#BlueJ class context
+#Sun Aug 02 21:47:55 CST 2026
+comment0.target=CuentaBancaria
+comment1.params=numero titular saldoInicial
+comment1.target=CuentaBancaria(java.lang.String, Cliente, double)
+comment10.params=monto
+comment10.target=void validarMonto(double)
+comment11.target=java.lang.String toString()
+comment2.target=java.lang.String getNumero()
+comment3.target=Cliente getTitular()
+comment4.target=double getSaldo()
+comment5.target=java.util.List getHistorial()
+comment6.params=monto
+comment6.target=void depositar(double)
+comment7.params=monto
+comment7.target=boolean retirar(double)
+comment8.params=destino monto
+comment8.target=boolean transferirA(CuentaBancaria, double)
+comment9.params=transaccion
+comment9.target=void registrarTransaccion(Transaccion)
+numComments=12

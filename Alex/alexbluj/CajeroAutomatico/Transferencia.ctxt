@@ -1,0 +1,9 @@
+#BlueJ class context
+#Sun Aug 02 21:47:55 CST 2026
+comment0.target=Transferencia
+comment1.params=cuentaOrigen cuentaDestino monto
+comment1.target=Transferencia(CuentaBancaria, CuentaBancaria, double)
+comment2.target=CuentaBancaria getCuentaDestino()
+comment3.target=boolean ejecutar()
+comment4.target=java.lang.String getTipo()
+numComments=5

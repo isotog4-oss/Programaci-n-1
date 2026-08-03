@@ -1,0 +1,13 @@
+#BlueJ class context
+#Sun Aug 02 21:47:55 CST 2026
+comment0.target=Tarjeta
+comment1.params=numero pin cuenta
+comment1.target=Tarjeta(java.lang.String, java.lang.String, CuentaBancaria)
+comment2.target=java.lang.String getNumero()
+comment3.target=CuentaBancaria getCuenta()
+comment4.target=boolean estaBloqueada()
+comment5.params=pinIngresado
+comment5.target=boolean validarPin(java.lang.String)
+comment6.params=pinActual pinNuevo
+comment6.target=void cambiarPin(java.lang.String, java.lang.String)
+numComments=7

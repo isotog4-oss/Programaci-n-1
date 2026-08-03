@@ -1,0 +1,8 @@
+#BlueJ class context
+#Sun Aug 02 14:22:38 CST 2026
+comment0.target=Recibo
+comment1.params=transaccion exitosa
+comment1.target=Recibo(Transaccion, boolean)
+comment2.target=java.lang.String imprimir()
+comment3.target=java.lang.String toString()
+numComments=4
