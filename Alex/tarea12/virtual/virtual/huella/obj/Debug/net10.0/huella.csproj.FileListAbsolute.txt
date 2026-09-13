@@ -1,0 +1,14 @@
+C:\Users\alumno\Desktop\virtual\huella\bin\Debug\net10.0\huella.exe
+C:\Users\alumno\Desktop\virtual\huella\bin\Debug\net10.0\huella.deps.json
+C:\Users\alumno\Desktop\virtual\huella\bin\Debug\net10.0\huella.runtimeconfig.json
+C:\Users\alumno\Desktop\virtual\huella\bin\Debug\net10.0\huella.dll
+C:\Users\alumno\Desktop\virtual\huella\bin\Debug\net10.0\huella.pdb
+C:\Users\alumno\Desktop\virtual\huella\obj\Debug\net10.0\huella.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\alumno\Desktop\virtual\huella\obj\Debug\net10.0\huella.AssemblyInfoInputs.cache
+C:\Users\alumno\Desktop\virtual\huella\obj\Debug\net10.0\huella.AssemblyInfo.cs
+C:\Users\alumno\Desktop\virtual\huella\obj\Debug\net10.0\huella.csproj.CoreCompileInputs.cache
+C:\Users\alumno\Desktop\virtual\huella\obj\Debug\net10.0\huella.dll
+C:\Users\alumno\Desktop\virtual\huella\obj\Debug\net10.0\refint\huella.dll
+C:\Users\alumno\Desktop\virtual\huella\obj\Debug\net10.0\huella.pdb
+C:\Users\alumno\Desktop\virtual\huella\obj\Debug\net10.0\huella.genruntimeconfig.cache
+C:\Users\alumno\Desktop\virtual\huella\obj\Debug\net10.0\ref\huella.dll
