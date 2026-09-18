@@ -1,0 +1,2 @@
+Nombre: Mario | Contrasena: 1234 | Inicio: 18/09/2026 01:53:55 a. m. | Cierre: 18/09/2026 01:54:34 a. m. | Duracion: 0 min
+Nombre: Mario | Contrasena: 1234 | Inicio: 18/09/2026 01:54:52 a. m. | Cierre: 18/09/2026 01:57:58 a. m. | Duracion: 3 min

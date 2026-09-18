@@ -1,0 +1,2 @@
+Nombre: Juan | Contrasena: 4321 | Inicio: 18/09/2026 01:58:29 a. m. | Cierre: 18/09/2026 01:58:48 a. m. | Duracion: 0 min
+Nombre: Juan | Contrasena: 4321 | Inicio: 18/09/2026 02:01:41 a. m. | Cierre: 18/09/2026 02:03:35 a. m. | Duracion: 1 min

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using Veterinaria.Logica;
 
@@ -37,12 +37,10 @@ namespace Veterinaria
                 // exactamente el mismo papel (nadie la encuentra por
                 // accidente) pero SÍ se puede capturar de forma segura
                 // dentro de un programa de consola.
-               
+                bool controlPresionado = (tecla.Modifiers & ConsoleModifiers.Control) != 0;
                 bool altPresionado = (tecla.Modifiers & ConsoleModifiers.Alt) != 0;
-                
-                bool shiftPresionado = (tecla.Modifiers & ConsoleModifiers.Shift) != 0;
 
-                if (altPresionado && shiftPresionado && tecla.Key == ConsoleKey.H)
+                if (controlPresionado && altPresionado && tecla.Key == ConsoleKey.D)
                 {
                     EjecutarModoDesarrollador();
                     continue;
