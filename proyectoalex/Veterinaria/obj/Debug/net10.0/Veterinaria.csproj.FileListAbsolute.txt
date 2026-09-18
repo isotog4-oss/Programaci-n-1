@@ -1,0 +1,15 @@
+C:\Users\Israel\OneDrive\Desktop\pramacion en c++\proyectoalex\Veterinaria\bin\Debug\net10.0\Veterinaria.exe
+C:\Users\Israel\OneDrive\Desktop\pramacion en c++\proyectoalex\Veterinaria\bin\Debug\net10.0\Veterinaria.deps.json
+C:\Users\Israel\OneDrive\Desktop\pramacion en c++\proyectoalex\Veterinaria\bin\Debug\net10.0\Veterinaria.runtimeconfig.json
+C:\Users\Israel\OneDrive\Desktop\pramacion en c++\proyectoalex\Veterinaria\bin\Debug\net10.0\Veterinaria.dll
+C:\Users\Israel\OneDrive\Desktop\pramacion en c++\proyectoalex\Veterinaria\bin\Debug\net10.0\Veterinaria.pdb
+C:\Users\Israel\OneDrive\Desktop\pramacion en c++\proyectoalex\Veterinaria\obj\Debug\net10.0\Veterinaria.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Israel\OneDrive\Desktop\pramacion en c++\proyectoalex\Veterinaria\obj\Debug\net10.0\Veterinaria.AssemblyInfoInputs.cache
+C:\Users\Israel\OneDrive\Desktop\pramacion en c++\proyectoalex\Veterinaria\obj\Debug\net10.0\Veterinaria.AssemblyInfo.cs
+C:\Users\Israel\OneDrive\Desktop\pramacion en c++\proyectoalex\Veterinaria\obj\Debug\net10.0\Veterinaria.csproj.CoreCompileInputs.cache
+C:\Users\Israel\OneDrive\Desktop\pramacion en c++\proyectoalex\Veterinaria\obj\Debug\net10.0\Veterinaria.sourcelink.json
+C:\Users\Israel\OneDrive\Desktop\pramacion en c++\proyectoalex\Veterinaria\obj\Debug\net10.0\Veterinaria.dll
+C:\Users\Israel\OneDrive\Desktop\pramacion en c++\proyectoalex\Veterinaria\obj\Debug\net10.0\refint\Veterinaria.dll
+C:\Users\Israel\OneDrive\Desktop\pramacion en c++\proyectoalex\Veterinaria\obj\Debug\net10.0\Veterinaria.pdb
+C:\Users\Israel\OneDrive\Desktop\pramacion en c++\proyectoalex\Veterinaria\obj\Debug\net10.0\Veterinaria.genruntimeconfig.cache
+C:\Users\Israel\OneDrive\Desktop\pramacion en c++\proyectoalex\Veterinaria\obj\Debug\net10.0\ref\Veterinaria.dll
