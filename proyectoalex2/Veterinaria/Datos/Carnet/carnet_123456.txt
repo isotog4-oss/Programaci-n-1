@@ -1,0 +1,22 @@
+CARNET
+Numero=123456
+Animal=Paco
+Especie=Loro
+DPI=12345678911001
+Celular=40960356
+Direccion=4ta calle zona 1
+CITA
+FechaCita=2026-09-18
+HoraCita=02:00
+AtendidaCita=True
+RECETA
+Medicamento=No ingreso
+Dosis=---
+Indicaciones=----
+FIN_RECETA
+PROCEDIMIENTO
+DescripcionProcedimiento=No Ingreso
+FechaProcedimiento=2026-09-18
+FIN_PROCEDIMIENTO
+FIN_CITA
+FIN_CARNET

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("huella")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bcd57acb15a7d0d3ba3bcb2d0fecd9ce8840851e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c23d6ca7d0e7e31e4967b33404853757780200f4")]
 [assembly: System.Reflection.AssemblyProductAttribute("huella")]
 [assembly: System.Reflection.AssemblyTitleAttribute("huella")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
