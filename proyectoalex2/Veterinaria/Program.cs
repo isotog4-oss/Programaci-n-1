@@ -15,7 +15,17 @@ namespace Veterinaria
         // llama, directa o indirectamente.
         static void Main(string[] args)
         {
-            bool salirDelPrograma = false;
+               try
+                {
+                    InicializadorBaseDatos.Inicializar();
+                 }
+                    catch (Exception error)
+                {
+                    Console.WriteLine("No fue posible conectar con la base de datos: " + error.Message);
+                    Console.ReadKey();
+                    return;
+                }
+        bool salirDelPrograma = false;
 
             while (!salirDelPrograma)
             {

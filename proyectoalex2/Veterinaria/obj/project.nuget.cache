@@ -1,8 +1,28 @@
 {
   "version": 2,
-  "dgSpecHash": "JQdtsfd9F5I=",
+  "dgSpecHash": "wkHw23+nRaU=",
   "success": true,
   "projectFilePath": "C:\\Users\\Israel\\OneDrive\\Desktop\\pramacion en c++\\proyectoalex2\\Veterinaria\\Veterinaria.csproj",
-  "expectedPackageFiles": [],
-  "logs": []
+  "expectedPackageFiles": [
+    "C:\\Users\\Israel\\.nuget\\packages\\microsoft.data.sqlite\\6.0.36\\microsoft.data.sqlite.6.0.36.nupkg.sha512",
+    "C:\\Users\\Israel\\.nuget\\packages\\microsoft.data.sqlite.core\\6.0.36\\microsoft.data.sqlite.core.6.0.36.nupkg.sha512",
+    "C:\\Users\\Israel\\.nuget\\packages\\sqlitepclraw.bundle_e_sqlite3\\2.1.2\\sqlitepclraw.bundle_e_sqlite3.2.1.2.nupkg.sha512",
+    "C:\\Users\\Israel\\.nuget\\packages\\sqlitepclraw.core\\2.1.2\\sqlitepclraw.core.2.1.2.nupkg.sha512",
+    "C:\\Users\\Israel\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3\\2.1.2\\sqlitepclraw.lib.e_sqlite3.2.1.2.nupkg.sha512",
+    "C:\\Users\\Israel\\.nuget\\packages\\sqlitepclraw.provider.e_sqlite3\\2.1.2\\sqlitepclraw.provider.e_sqlite3.2.1.2.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "message": "El paquete \"SQLitePCLRaw.lib.e_sqlite3\" 2.1.2 tiene una vulnerabilidad de gravedad alta conocida, https://github.com/advisories/GHSA-2m69-gcr7-jv3q",
+      "projectPath": "C:\\Users\\Israel\\OneDrive\\Desktop\\pramacion en c++\\proyectoalex2\\Veterinaria\\Veterinaria.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\Israel\\OneDrive\\Desktop\\pramacion en c++\\proyectoalex2\\Veterinaria\\Veterinaria.csproj",
+      "libraryId": "SQLitePCLRaw.lib.e_sqlite3",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    }
+  ]
 }
