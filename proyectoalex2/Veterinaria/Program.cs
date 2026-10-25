@@ -15,17 +15,20 @@ namespace Veterinaria
         // llama, directa o indirectamente.
         static void Main(string[] args)
         {
-               try
-                {
-                    InicializadorBaseDatos.Inicializar();
-                 }
-                    catch (Exception error)
-                {
-                    Console.WriteLine("No fue posible conectar con la base de datos: " + error.Message);
-                    Console.ReadKey();
-                    return;
-                }
-        bool salirDelPrograma = false;
+            // Crea la base de datos y las tablas la primera vez. Si ya
+            // existen, no toca nada.
+            try
+            {
+                InicializadorBaseDatos.Inicializar();
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine("No fue posible conectar con la base de datos: " + error.Message);
+                Console.ReadKey();
+                return;
+            }
+
+            bool salirDelPrograma = false;
 
             while (!salirDelPrograma)
             {
@@ -565,7 +568,7 @@ namespace Veterinaria
 
             // Cualquier otro desarrollador SI fue creado por Israel en
             // algun momento, asi que su nombre y contrasena ya estan
-            // guardados en desarrolladores.txt.
+            // guardados en la tabla Desarrolladores.
             foreach (string[] datos in GestorArchivos.LeerDesarrolladores())
             {
                 if (datos[0] == nombre && datos[1] == contrasena)
@@ -672,3 +675,4 @@ namespace Veterinaria
         }
     }
 }
+ 
